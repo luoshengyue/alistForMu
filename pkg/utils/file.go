@@ -104,6 +104,7 @@ func CreateNestedDirectory(path string) error {
 // CreateNestedFile create nested file
 func CreateNestedFile(path string) (*os.File, error) {
 	basePath := filepath.Dir(path)
+	// create nested directory,
 	if err := CreateNestedDirectory(basePath); err != nil {
 		return nil, err
 	}

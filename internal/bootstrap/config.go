@@ -30,6 +30,7 @@ func InitConfig() {
 	log.Infof("reading config file: %s", configPath)
 	if !utils.Exists(configPath) {
 		log.Infof("config file not exists, creating default config file")
+		// if config file not exists, create default data dir
 		_, err := utils.CreateNestedFile(configPath)
 		if err != nil {
 			log.Fatalf("failed to create config file: %+v", err)

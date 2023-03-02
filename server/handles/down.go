@@ -28,7 +28,6 @@ func Down(c *gin.Context) {
 		Proxy(c)
 		return
 	} else {
-
 		link, _, err := fs.Link(c, rawPath, model.LinkArgs{
 			IP:     c.ClientIP(),
 			Header: c.Request.Header,
@@ -40,6 +39,7 @@ func Down(c *gin.Context) {
 		}
 		c.Header("Referrer-Policy", "no-referrer")
 		c.Header("Cache-Control", "max-age=0, no-cache, no-store, must-revalidate")
+
 		if setting.GetBool(conf.ForwardDirectLinkParams) {
 			query := c.Request.URL.Query()
 			query.Del("sign")
